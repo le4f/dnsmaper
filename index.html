@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="DNSMaper : 子域名信息枚举与地图标记[Enum subdomain information &amp; Mark it in GoogleMap]" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>DNSMaper</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/le4f/dnsmaper">View on GitHub</a>
+
+          <h1 id="project_title">DNSMaper</h1>
+          <h2 id="project_tagline">子域名信息枚举与地图标记[Enum subdomain information &amp; Mark it in GoogleMap]</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/le4f/dnsmaper/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/le4f/dnsmaper/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a name="dnsmaper" class="anchor" href="#dnsmaper"><span class="octicon octicon-link"></span></a>DNSMaper</h3>
+
+<p>DNSMaper拥有与众多子域名枚举工具相似的功能,诸如域传送漏洞检测,子域名枚举,IP地址获取
+改进后增加服务器WEBServer版本探测,网站标题获取,经纬度获取与GoogleMap生成的功能.
+代码在枚举子域名部分没有重复造轮,借鉴subdomain-bruteforcer项目代码
+因代码使用发布仓促,仅在MacOS&amp;Python2.7测试,Win环境请修改部分代码.
+其他项目请见:
+<a href="http://le4f.net/proj.md">http://le4f.net/proj.md</a></p>
+
+<h3>
+<a name="%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E" class="anchor" href="#%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E"><span class="octicon octicon-link"></span></a>文件说明</h3>
+
+<pre><code>.
+├── dnsmaper.py(核心代码)
+├── dnsmapper.png(演示截图)
+├── db
+│   ├── GeoLite2-City.mmdb(调用GEOIP获取经纬度等信息)
+│   ├── resolvers.db(DNS解析服务器列表[可修改])
+│   ├── subs.db(子域名字典[可修改])
+├── log
+│   ├── xxx.log(扫描结果的log文本)
+│   └── xxx.html(扫描结果的GoogleMap页面)
+└── readme.md(项目说明)
+</code></pre>
+
+<h3>
+<a name="%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9" class="anchor" href="#%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9"><span class="octicon octicon-link"></span></a>使用帮助</h3>
+
+<p>请使用Python dnsmaper.py -h查看参数</p>
+
+<pre><code> ____  _   _ ____  __  __
+|  _ \| \ | / ___||  \/  | __ _ _ __   ___ _ __
+| | | |  \| \___ \| |\/| |/ _` | '_ \ / _ \ '__|
+| |_| | |\  |___) | |  | | (_| | |_) |  __/ |
+|____/|_| \_|____/|_|  |_|\__,_| .__/ \___|_|
+                               |_|
+ =# Author: le4f.net
+ =# Mail  : le4f#xdsec.org
+
+Usage: dnsmaper.py [options] target
+
+Options:
+  -h, --help            show this help message and exit
+  -c THREAD_COUNT, --thread_count=THREAD_COUNT
+                        [optional]number of lookup theads,default=17
+  -s SUBS, --subs=SUBS  (optional)list of subdomains,  default='./db/subs.db'
+  -r RESOLVERS, --resolvers=RESOLVERS
+                        (optional)list of DNS
+                        resolvers,default='./db/resolvers.db'
+</code></pre>
+
+<h3>
+<a name="%E6%BC%94%E7%A4%BA%E5%9B%BE%E7%89%87" class="anchor" href="#%E6%BC%94%E7%A4%BA%E5%9B%BE%E7%89%87"><span class="octicon octicon-link"></span></a>演示图片</h3>
+
+<p>测试如</p>
+
+<pre><code>python dnsmaper.py whitehouse.gov
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/le4f/dnsmaper/master/dnsmapper.png" alt="https://raw.githubusercontent.com/le4f/dnsmaper/master/dnsmapper.png"></p>
+
+<h3>
+<a name="%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80" class="anchor" href="#%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80"><span class="octicon octicon-link"></span></a>项目地址</h3>
+
+<p><a href="http://le4f.net/proj.md">http://le4f.net/proj.md</a></p>
+
+<h3>
+<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h3>
+
+<p><a href="http://le4f.net/">le4f</a></p>
+
+<p>Contact Me @ le4f[#]xdsec.org</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">DNSMaper maintained by <a href="https://github.com/le4f">le4f</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
